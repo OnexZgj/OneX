@@ -34,7 +34,7 @@ public class RetrofitHelper {
      * 在后期的代码中只需要进行添加这个相关的一些方法，也和retrofit的使用相关，不同的请求地址和参数，对应不同的接口和请求的方法。
      * @return
      */
-    public static MovieService getLiveAPI() {
+    public static MovieService getMovieAPI() {
         return createApi(MovieService.class, HttpMethods.BASE_URL);
     }
 
@@ -71,11 +71,11 @@ public class RetrofitHelper {
         if (mOkHttpClient==null){
             synchronized (RetrofitHelper.class){
                 //设置了缓存的位置 大小为10M
-                Cache cache = new Cache(new File(RetrofitApp.getInstance().getCacheDir(), "HttpCache"), 1024 * 1024 * 10);
                 if (mOkHttpClient==null){
+                    Cache cache = new Cache(new File(RetrofitApp.getInstance().getCacheDir(), "HttpCache"), 1024 * 1024 * 10);
                     mOkHttpClient=new OkHttpClient.Builder()
                             .addNetworkInterceptor(new StethoInterceptor())
-                            .addNetworkInterceptor(new CacheInterceptor())
+//                            .addNetworkInterceptor(new CacheInterceptor())
                             .cache(cache)
                             .retryOnConnectionFailure(true)
                             .connectTimeout(15,TimeUnit.SECONDS)
