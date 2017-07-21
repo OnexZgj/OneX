@@ -17,7 +17,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * 封装网络请求的框架
+ * retrofit的入门封装
  * Created by Linsa on 2017/7/20.
  */
 

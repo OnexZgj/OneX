@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Linsa on 2017/7/21:10:58.
- * des:
+ * des:retrofit请求框架的完整封装
  */
 
 public class RetrofitHelper {
