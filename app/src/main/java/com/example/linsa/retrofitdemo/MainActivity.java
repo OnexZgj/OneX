@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void getMovie() {
+
+        //------------简单的retrofit的使用------没有经过任何的封装---使用了Rxjava的框架
         String baseUrl = "https://api.douban.com/v2/movie/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity
                 });
 
 
-        //----------------------================-------------------------------
+        //-----------------没有使用Rxjava的时候使用retrofit的调用-----================-------------------------------
 
 //        MovieService movieService = retrofit.create(MovieService.class);
 //        Call<Movie> call = movieService.getTopMovie(0, 10);
