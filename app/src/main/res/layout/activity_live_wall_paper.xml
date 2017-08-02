@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+        >
+
+    <Button
+        android:id="@+id/btn_alwp_set_papaer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置视频壁纸"/>
+
+    <CheckBox
+        android:id="@+id/cb_alwp_quite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="静音"/>
+
+    <CheckBox
+        android:id="@+id/cb_alwp_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开启声音"
+        android:visibility="gone"/>
+
+</LinearLayout>

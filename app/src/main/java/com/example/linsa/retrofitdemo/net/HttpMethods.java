@@ -50,7 +50,7 @@ public class HttpMethods {
                 .client(okBuilder.build())
                 .build();
 
-        //
+        //初始化接口方法中的实例
         movieService = retrofit.create(MovieService.class);
 
     }
@@ -66,6 +66,7 @@ public class HttpMethods {
             movieService.getTopMovie(start, count)
                     .subscribeOn(Schedulers.io())
                     .unsubscribeOn(Schedulers.io())
+                    //观察者的运行的线程
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(subscriber);
         }

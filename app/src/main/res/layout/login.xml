@@ -135,7 +135,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/default_medium_text_size" />
 
-    <com.example.linsa.retrofitdemo.view.CircleProgressView
+    <com.example.linsa.retrofitdemo.designview.CircleProgressView
         android:id="@+id/pb_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

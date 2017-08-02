@@ -9,6 +9,10 @@
     <color name="blue_30">#20C1FD</color>
     <color name="white">#FFFFFF</color>
     <color name="white_30">#F2F2F2</color>
+
+    <color name="pressedColor">#545454</color>
+    <color name="normalColor">#8e8e8e</color>
+
     <color name="white_80">#FAFAFA</color>
     <color name="orange_500">#FF9800</color>
     <color name="green_300">#81C784</color>

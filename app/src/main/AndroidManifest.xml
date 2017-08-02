@@ -3,14 +3,15 @@
           package="com.example.linsa.retrofitdemo">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
+        android:name=".RetrofitApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".RetrofitApp">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -23,6 +24,26 @@
         </activity>
         <activity android:name=".LoginActivity">
         </activity>
+        <activity android:name=".DragGridActivity">
+        </activity>
+        <activity android:name=".PaletterActivity">
+        </activity>
+        <activity android:name=".LiveWallPaper">
+        </activity>
+
+        <service android:name=".service.VideoLiveWallpaper"
+                 android:label="@string/app_name"
+                 android:permission="android.permission.BIND_WALLPAPER"
+                 android:process=":wallpaper">
+
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+
+        </service>
     </application>
 
 </manifest>

@@ -14,7 +14,10 @@ import android.widget.Toast;
 import com.example.linsa.retrofitdemo.bean.Movie;
 import com.example.linsa.retrofitdemo.net.HttpMethods;
 import com.example.linsa.retrofitdemo.net.MovieService;
+import com.example.linsa.retrofitdemo.presenter.IMainPresenter;
+import com.example.linsa.retrofitdemo.presenter.MainPresenter;
 import com.example.linsa.retrofitdemo.util.ImageBlurUtil;
+import com.example.linsa.retrofitdemo.view.IMainActivity;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -24,26 +27,49 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity
-        implements  View.OnClickListener {
+        implements IMainActivity, View.OnClickListener {
 
     private Button btnCmRequest;
+    /**
+     * 图片模糊
+     */
     private Button btnCmImg;
+    /**
+     * testDragGridView
+     */
+    private Button btnAmDrag;
+
     private Button btnCmLogin;
     private ImageView ivCmAim;
+
+    /**
+     * 中间的协调层
+     */
+    private IMainPresenter iMainPresenter;
+    private Button btnAmPaletter;
+    private Button btnAmLivePaper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mai);
+        setContentView(R.layout.activity_main);
+        iMainPresenter = new MainPresenter(this);
 
         btnCmRequest = (Button) findViewById(R.id.btn_cm_request);
+        btnAmDrag = (Button) findViewById(R.id.btn_am_drag);
         btnCmImg = (Button) findViewById(R.id.btn_cm_img);
         btnCmLogin = (Button) findViewById(R.id.btn_cm_login);
+        btnAmPaletter = (Button) findViewById(R.id.btn_am_paletter);
+        btnAmLivePaper = (Button) findViewById(R.id.btn_am_live_wallpaper);
         ivCmAim = (ImageView) findViewById(R.id.iv_cm_aim);
 
+        btnAmDrag.setOnClickListener(this);
         btnCmRequest.setOnClickListener(this);
         btnCmImg.setOnClickListener(this);
         btnCmLogin.setOnClickListener(this);
+        btnAmPaletter.setOnClickListener(this);
+        btnAmLivePaper.setOnClickListener(this);
     }
 
 
@@ -84,7 +110,7 @@ public class MainActivity extends AppCompatActivity
 
                     @Override
                     public void onNext(Movie movie) {
-                        Log.i("TAG", "onNext: "+ movie.getSubjects().get(2).getTitle() );
+                        Log.i("TAG", "onNext: " + movie.getSubjects().get(2).getTitle());
                         Toast.makeText(MainActivity.this, movie.getSubjects().get(2).getTitle(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -114,7 +140,7 @@ public class MainActivity extends AppCompatActivity
 
     public void getMovieThird() {
 
-        Subscriber<Movie> subscriber=new Subscriber<Movie>() {
+        Subscriber<Movie> subscriber = new Subscriber<Movie>() {
             @Override
             public void onCompleted() {
                 Toast.makeText(MainActivity.this, "Get Top Movie Completed", Toast.LENGTH_SHORT).show();
@@ -122,7 +148,7 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onError(Throwable e) {
-                Log.i("TAG", "onError:   "+ e.toString());
+                Log.i("TAG", "onError:   " + e.toString());
                 Toast.makeText(MainActivity.this, "网络请求出错!", Toast.LENGTH_SHORT).show();
             }
 
@@ -131,21 +157,38 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this, movie.getSubjects().get(3).getTitle(), Toast.LENGTH_SHORT).show();
             }
         };
-        HttpMethods.getInstance().getTopMovie(subscriber,0,4);
+        HttpMethods.getInstance().getTopMovie(subscriber, 0, 4);
     }
 
     @Override
     public void onClick(View v) {
         //进行请求网络的操作
 //        getMovie();
-        if (v.getId()==R.id.btn_cm_request) {
-            getMovieThird();
+        switch (v.getId()) {
+            case R.id.btn_cm_request :
+                iMainPresenter.getMovieThird();
+                break;
+            case R.id.btn_cm_img:
+                iMainPresenter.imgblur();
+                break;
+            case R.id.btn_cm_login:
+                iMainPresenter.startLogin(MainActivity.this, LoginActivity.class);
+                break;
+            case R.id.btn_am_paletter:
+                startActivity(new Intent(MainActivity.this,PaletterActivity.class));
+                break;
+            case R.id.btn_am_live_wallpaper:
+                startActivity(new Intent(MainActivity.this,LiveWallPaper.class));
+                break;
         }
-        if (v.getId()==R.id.btn_cm_img){
-            imgblur();
-        }
-        if (v.getId()==R.id.btn_cm_login){
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
-        }
+
+
+
+    }
+
+
+    @Override
+    public void setImageView(Bitmap bitmap) {
+        ivCmAim.setImageBitmap(bitmap);
     }
 }
