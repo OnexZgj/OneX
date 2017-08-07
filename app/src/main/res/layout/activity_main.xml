@@ -1,81 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="81dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <LinearLayout
+    <com.example.linsa.retrofitdemo.designview.DampingScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_am_drag"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:textSize="16sp"
-            android:background="@color/colorPrimary"
-            android:text="DragGridView"/>
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_am_drag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="DragGridView"
+                android:textSize="16sp"/>
 
 
-        <Button
-            android:id="@+id/btn_am_paletter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:text="Using Paletter"/>
+            <Button
+                android:id="@+id/btn_am_paletter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:text="Using Paletter"
+                android:textSize="16sp"/>
 
-        <Button
-            android:id="@+id/btn_cm_request"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Retrofit+RxJava"
-            android:background="@color/colorPrimary"
-            android:textSize="16sp"/>
+            <Button
+                android:id="@+id/btn_cm_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="Retrofit+RxJava"
+                android:textSize="16sp"/>
 
-        <Button
-            android:id="@+id/btn_cm_img"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="图片模糊"/>
+            <Button
+                android:id="@+id/btn_cm_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="图片模糊"/>
 
-        <Button
-            android:id="@+id/btn_cm_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@color/colorPrimary"
-            android:text="Login"/>
+            <Button
+                android:id="@+id/btn_cm_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="Login"/>
 
-        <Button
-            android:id="@+id/btn_am_live_wallpaper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@color/colorPrimary"
-            android:text="Setting Live WallPaper"/>
+            <Button
+                android:id="@+id/btn_am_live_wallpaper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Setting Live WallPaper"/>
 
-        <ImageView
-            android:id="@+id/iv_cm_aim"
-            android:layout_width="match_parent"
-            android:layout_height="239dp"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/icone"/>
-    </LinearLayout>
-</ScrollView>
+            <Button
+                android:id="@+id/btn_am_test_excel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="Test Sqlite to Excel"/>
+
+            <Button
+                android:id="@+id/btn_am_process"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Test alive process"/>
+
+
+            <ImageView
+                android:id="@+id/iv_cm_aim"
+                android:layout_width="match_parent"
+                android:layout_height="239dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/icone"/>
+        </LinearLayout>
+    </com.example.linsa.retrofitdemo.designview.DampingScrollView>
+</LinearLayout>
 
 
 

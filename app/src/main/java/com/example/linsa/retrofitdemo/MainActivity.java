@@ -1,6 +1,7 @@
 package com.example.linsa.retrofitdemo;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -11,14 +12,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.linsa.retrofitdemo.activity.DragGridActivity;
+import com.example.linsa.retrofitdemo.activity.LoginActivity;
+import com.example.linsa.retrofitdemo.activity.PaletterActivity;
+import com.example.linsa.retrofitdemo.activity.PixelsActivity;
+import com.example.linsa.retrofitdemo.activity.TestExcelActivity;
 import com.example.linsa.retrofitdemo.bean.Movie;
+import com.example.linsa.retrofitdemo.broadcast.BootCompleteReceiver;
 import com.example.linsa.retrofitdemo.net.HttpMethods;
 import com.example.linsa.retrofitdemo.net.MovieService;
 import com.example.linsa.retrofitdemo.presenter.IMainPresenter;
-import com.example.linsa.retrofitdemo.presenter.MainPresenter;
 import com.example.linsa.retrofitdemo.util.ImageBlurUtil;
-import com.example.linsa.retrofitdemo.view.IMainActivity;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -26,52 +34,105 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity
-        implements IMainActivity, View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
-    private Button btnCmRequest;
-    /**
-     * 图片模糊
-     */
-    private Button btnCmImg;
-    /**
-     * testDragGridView
-     */
-    private Button btnAmDrag;
+    @InjectView(R.id.btn_am_drag)
+    Button btnAmDrag;
+    @InjectView(R.id.btn_am_paletter)
+    Button btnAmPaletter;
+    @InjectView(R.id.btn_cm_request)
+    Button btnCmRequest;
+    @InjectView(R.id.btn_cm_img)
+    Button btnCmImg;
+    @InjectView(R.id.btn_cm_login)
+    Button btnCmLogin;
+    @InjectView(R.id.btn_am_live_wallpaper)
+    Button btnAmLiveWallpaper;
+    @InjectView(R.id.btn_am_test_excel)
+    Button btnAmTestExcel;
+    @InjectView(R.id.iv_cm_aim)
+    ImageView ivCmAim;
+    @InjectView(R.id.btn_am_process)
+    Button btnAmProcess;
 
-    private Button btnCmLogin;
-    private ImageView ivCmAim;
 
     /**
      * 中间的协调层
      */
     private IMainPresenter iMainPresenter;
-    private Button btnAmPaletter;
-    private Button btnAmLivePaper;
+
+    /**
+     * 进行测试Android中转化Excel
+     */
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        iMainPresenter = new MainPresenter(this);
+        ButterKnife.inject(this);
 
-        btnCmRequest = (Button) findViewById(R.id.btn_cm_request);
-        btnAmDrag = (Button) findViewById(R.id.btn_am_drag);
-        btnCmImg = (Button) findViewById(R.id.btn_cm_img);
-        btnCmLogin = (Button) findViewById(R.id.btn_cm_login);
-        btnAmPaletter = (Button) findViewById(R.id.btn_am_paletter);
-        btnAmLivePaper = (Button) findViewById(R.id.btn_am_live_wallpaper);
-        ivCmAim = (ImageView) findViewById(R.id.iv_cm_aim);
 
-        btnAmDrag.setOnClickListener(this);
-        btnCmRequest.setOnClickListener(this);
-        btnCmImg.setOnClickListener(this);
-        btnCmLogin.setOnClickListener(this);
-        btnAmPaletter.setOnClickListener(this);
-        btnAmLivePaper.setOnClickListener(this);
+//        initRegisterBroadCast();
+
+//        iMainPresenter = new MainPresenter(this);
+
     }
 
+
+    /**
+     * 动态注册锁屏的广播
+     */
+    private void initRegisterBroadCast() {
+        IntentFilter filter=new IntentFilter();
+        filter.addAction(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        registerReceiver(new BootCompleteReceiver(), filter);
+    }
+
+
+    @OnClick({R.id.btn_am_process,R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btn_am_drag:
+                startActivity(new Intent(MainActivity.this, DragGridActivity.class));
+                break;
+            case R.id.btn_am_paletter:
+                startActivity(new Intent(MainActivity.this, PaletterActivity.class));
+                break;
+            case R.id.btn_cm_request:
+                getMovieThird();
+                break;
+            case R.id.btn_cm_img:
+                imgblur();
+                break;
+            case R.id.btn_cm_login:
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                break;
+            case R.id.btn_am_live_wallpaper:
+                startActivity(new Intent(MainActivity.this, LiveWallPaper.class));
+                break;
+            case R.id.btn_am_test_excel:
+                startActivity(new Intent(MainActivity.this, TestExcelActivity.class));
+                break;
+            case R.id.btn_am_process:
+                startActivity(new Intent(MainActivity.this,PixelsActivity.class));
+                break;
+
+        }
+    }
+
+
+    /**
+     * 当按返回键重新进行开启Activity
+     */
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        getApplicationContext().startActivity(intent);
+    }
 
     /**
      * 将图片进行模糊的方法
@@ -160,35 +221,5 @@ public class MainActivity extends AppCompatActivity
         HttpMethods.getInstance().getTopMovie(subscriber, 0, 4);
     }
 
-    @Override
-    public void onClick(View v) {
-        //进行请求网络的操作
-//        getMovie();
-        switch (v.getId()) {
-            case R.id.btn_cm_request :
-                iMainPresenter.getMovieThird();
-                break;
-            case R.id.btn_cm_img:
-                iMainPresenter.imgblur();
-                break;
-            case R.id.btn_cm_login:
-                iMainPresenter.startLogin(MainActivity.this, LoginActivity.class);
-                break;
-            case R.id.btn_am_paletter:
-                startActivity(new Intent(MainActivity.this,PaletterActivity.class));
-                break;
-            case R.id.btn_am_live_wallpaper:
-                startActivity(new Intent(MainActivity.this,LiveWallPaper.class));
-                break;
-        }
 
-
-
-    }
-
-
-    @Override
-    public void setImageView(Bitmap bitmap) {
-        ivCmAim.setImageBitmap(bitmap);
-    }
 }
