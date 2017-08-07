@@ -1,8 +1,8 @@
 package com.example.linsa.retrofitdemo.service;
 
 import android.content.BroadcastReceiver;
-import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
+import android.os.Environment;
 import android.service.wallpaper.WallpaperService;
 import android.view.SurfaceHolder;
 
@@ -71,8 +71,10 @@ public class VideoLiveWallpaper extends WallpaperService {
             mMediaPlayer.setSurface(holder.getSurface());
 
             try {
-                AssetFileDescriptor assetFileDescriptor = getApplicationContext().getAssets().openFd(("test1.mp4"));
-                mMediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),assetFileDescriptor.getStartOffset(),assetFileDescriptor.getLength());
+//                AssetFileDescriptor assetFileDescriptor = getApplicationContext().getAssets().openFd(("huan.mp4"));
+
+                mMediaPlayer.setDataSource(Environment.getExternalStorageDirectory().getPath()+"/onex.mp4");
+//                mMediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),assetFileDescriptor.getStartOffset(),assetFileDescriptor.getLength());
 
                 mMediaPlayer.setLooping(true);
                 mMediaPlayer.setVolume(0,0);
@@ -90,10 +92,15 @@ public class VideoLiveWallpaper extends WallpaperService {
         public void onVisibilityChanged(boolean visible) {
             if (visible){
                 //进行开启surfaceView
-                mMediaPlayer.start();
+
+                if(mMediaPlayer!=null) {
+                    mMediaPlayer.start();
+                }
             }else{
                 //进行暂停surfaceView
-                mMediaPlayer.pause();
+                if (mMediaPlayer!=null) {
+                    mMediaPlayer.pause();
+                }
             }
 
         }

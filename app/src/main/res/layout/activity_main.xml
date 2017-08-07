@@ -5,25 +5,21 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="81dp">
+            android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_am_drag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="16sp"
             android:background="@color/colorPrimary"
-            android:text="DragGridView"/>
+            android:text="DragGridView"
+            android:textSize="16sp"/>
 
 
         <Button
@@ -31,17 +27,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="16sp"
             android:gravity="center"
-            android:text="Using Paletter"/>
+            android:text="Using Paletter"
+            android:textSize="16sp"/>
 
         <Button
             android:id="@+id/btn_cm_request"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="Retrofit+RxJava"
             android:background="@color/colorPrimary"
+            android:text="Retrofit+RxJava"
             android:textSize="16sp"/>
 
         <Button
@@ -64,8 +60,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@color/colorPrimary"
             android:text="Setting Live WallPaper"/>
+
+        <Button
+            android:id="@+id/btn_am_test_excel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@color/colorPrimary"
+            android:text="Test Sqlite to Excel"/>
+
+        <Button
+            android:id="@+id/btn_am_process"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Test alive process"/>
+
+
 
         <ImageView
             android:id="@+id/iv_cm_aim"
