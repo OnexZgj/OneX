@@ -1,7 +1,6 @@
 package com.example.linsa.retrofitdemo;
 
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -17,8 +16,10 @@ import com.example.linsa.retrofitdemo.activity.LoginActivity;
 import com.example.linsa.retrofitdemo.activity.PaletterActivity;
 import com.example.linsa.retrofitdemo.activity.PixelsActivity;
 import com.example.linsa.retrofitdemo.activity.TestExcelActivity;
+import com.example.linsa.retrofitdemo.activity.TestHutils;
+import com.example.linsa.retrofitdemo.activity.TestLoadingView;
+import com.example.linsa.retrofitdemo.activity.TestVector;
 import com.example.linsa.retrofitdemo.bean.Movie;
-import com.example.linsa.retrofitdemo.broadcast.BootCompleteReceiver;
 import com.example.linsa.retrofitdemo.net.HttpMethods;
 import com.example.linsa.retrofitdemo.net.MovieService;
 import com.example.linsa.retrofitdemo.presenter.IMainPresenter;
@@ -54,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
     ImageView ivCmAim;
     @InjectView(R.id.btn_am_process)
     Button btnAmProcess;
+    @InjectView(R.id.btn_am_test_vector)
+    Button btnAmTestVector;
+    @InjectView(R.id.btn_am_test_loading)
+    Button btnAmTestLoading;
+    @InjectView(R.id.btn_am_test_hutils)
+    Button btnAmTestHutils;
 
 
     /**
@@ -80,18 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * 动态注册锁屏的广播
-     */
-    private void initRegisterBroadCast() {
-        IntentFilter filter=new IntentFilter();
-        filter.addAction(Intent.ACTION_SCREEN_ON);
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        registerReceiver(new BootCompleteReceiver(), filter);
-    }
-
-
-    @OnClick({R.id.btn_am_process,R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
+    @OnClick({R.id.btn_am_test_hutils,R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_am_drag:
@@ -116,7 +112,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, TestExcelActivity.class));
                 break;
             case R.id.btn_am_process:
-                startActivity(new Intent(MainActivity.this,PixelsActivity.class));
+                startActivity(new Intent(MainActivity.this, PixelsActivity.class));
+                break;
+            case R.id.btn_am_test_vector:
+                startActivity(new Intent(MainActivity.this, TestVector.class));
+                break;
+            case R.id.btn_am_test_loading:
+                startActivity(new Intent(MainActivity.this, TestLoadingView.class));
+                break;
+            case R.id.btn_am_test_hutils:
+                startActivity(new Intent(MainActivity.this,TestHutils.class));
                 break;
 
         }
@@ -220,6 +225,5 @@ public class MainActivity extends AppCompatActivity {
         };
         HttpMethods.getInstance().getTopMovie(subscriber, 0, 4);
     }
-
 
 }

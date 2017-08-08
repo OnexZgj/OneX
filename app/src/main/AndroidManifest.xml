@@ -33,17 +33,14 @@
         </activity>
         <activity android:name=".LiveWallPaper">
         </activity>
-
-
-        <activity android:name=".activity.PixelsActivity"
-                  android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
-                  android:excludeFromRecents="true"
-                  android:exported="false"
-                  android:finishOnTaskLaunch="false"
-                  android:launchMode="singleInstance"
-                  android:theme="@style/HooliganActivityStyle"/>
-
-
+        <activity
+            android:name=".activity.PixelsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:finishOnTaskLaunch="false"
+            android:launchMode="singleInstance"
+            android:theme="@style/HooliganActivityStyle"/>
 
         <service
             android:name=".service.VideoLiveWallpaper"
@@ -61,7 +58,12 @@
 
         <activity android:name=".activity.TestExcelActivity">
         </activity>
-
+        <activity android:name=".activity.TestVector">
+        </activity>
+        <activity android:name=".activity.TestLoadingView">
+        </activity>
+        <activity android:name=".activity.TestHutils">
+        </activity>
     </application>
 
 </manifest>

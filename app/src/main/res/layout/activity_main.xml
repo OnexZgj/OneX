@@ -83,6 +83,34 @@
                 android:layout_margin="8dp"
                 android:text="Test alive process"/>
 
+            <Button
+                android:id="@+id/btn_am_test_vector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="Test vector"
+                />
+
+            <Button
+                android:id="@+id/btn_am_test_loading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Test elm Loading"
+                />
+
+            <Button
+                android:id="@+id/btn_am_test_hutils"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="Test elm Loading"
+                />
+
+
+
 
             <ImageView
                 android:id="@+id/iv_cm_aim"

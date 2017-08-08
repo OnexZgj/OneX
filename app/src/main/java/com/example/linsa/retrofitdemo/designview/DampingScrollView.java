@@ -169,7 +169,7 @@ public class DampingScrollView extends ScrollView {
                         return super.onTouchEvent(event);
                     }
                     mScale = calculateRate(mMoveInstance);
-                    pull(mScale);
+                    push(mScale);
                     return true;
                 }else if (isScrollToTop() && isScrollToBottom()){
                     // 在底部也在顶部
