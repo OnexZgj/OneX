@@ -1,7 +1,5 @@
 package com.example.linsa.retrofitdemo;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -94,13 +92,13 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
 
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(ivCmAim, "alpha", 1f, 0.8f);
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(ivCmAim, "scaleX", 1f, 1.5f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(ivCmAim, "scaleY", 1f, 1.1f);
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.setDuration(6000);
-        animatorSet.play(alpha).with(scaleX).with(scaleY);
-        animatorSet.start();
+//        ObjectAnimator alpha = ObjectAnimator.ofFloat(ivCmAim, "alpha", 1f, 0.8f);
+//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(ivCmAim, "scaleX", 1f, 1.5f);
+//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(ivCmAim, "scaleY", 1f, 1.1f);
+//        AnimatorSet animatorSet = new AnimatorSet();
+//        animatorSet.setDuration(6000);
+//        animatorSet.play(alpha).with(scaleX).with(scaleY);
+//        animatorSet.start();
 
 
 //        iMainPresenter = new MainPresenter(this);
@@ -259,7 +257,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick(R.id.btn_am_test_slider_layout)
-    public void onViewClicked() {
-    }
+
 }

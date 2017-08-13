@@ -145,13 +145,12 @@
 
 
             <ImageView
-                android:layout_marginTop="80dp"
                 android:id="@+id/iv_cm_aim"
                 android:layout_width="match_parent"
                 android:layout_height="239dp"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="8dp"
-                android:src="@drawable/icone"/>
+                android:src="@drawable/ic_22"/>
         </LinearLayout>
     </com.example.linsa.retrofitdemo.designview.DampingScrollView>
 </LinearLayout>
