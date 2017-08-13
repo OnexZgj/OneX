@@ -91,10 +91,15 @@
         android:background="@color/bangumi_index_yellow_bg"
         android:text="get Paletter Color"/>
 
+
+
     <ImageView
+
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="80dp"
         android:id="@+id/iv_ap_source"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:src="@drawable/img4"/>
 
 </LinearLayout>

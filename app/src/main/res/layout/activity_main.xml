@@ -106,13 +106,46 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@color/colorPrimary"
-                android:text="Test elm Loading"
+                android:text="Test MyUtils"
                 />
+
+            <Button
+                android:id="@+id/btn_am_test_coor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Test Coor"
+                />
+
+            <Button
+                android:id="@+id/btn_am_app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="Test AppBarLayout"/>
+
+            <Button
+                android:id="@+id/btn_am_ali_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="Test AppBarLayout"/>
+
+            <Button
+                android:id="@+id/btn_am_test_slider_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="Test Slider Layout"/>
 
 
 
 
             <ImageView
+                android:layout_marginTop="80dp"
                 android:id="@+id/iv_cm_aim"
                 android:layout_width="match_parent"
                 android:layout_height="239dp"

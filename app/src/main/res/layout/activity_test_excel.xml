@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.linsa.retrofitdemo.activity.TestExcelActivity">
 
 
@@ -14,4 +15,14 @@
         android:layout_height="wrap_content"
         android:text="生成数据"/>
 
-</android.support.constraint.ConstraintLayout>
+    <com.example.linsa.retrofitdemo.designview.WaveView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+
+    <com.example.linsa.retrofitdemo.designview.CircleView
+        android:id="@+id/cv_ate_cv"
+        android:layout_width="800dp"
+        android:layout_height="800dp"/>
+
+</LinearLayout>

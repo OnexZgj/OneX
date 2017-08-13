@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.example.linsa.retrofitdemo">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -25,14 +26,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity">
-        </activity>
+        <activity android:name=".activity.LoginActivity"/>
+
         <activity android:name=".activity.DragGridActivity">
         </activity>
         <activity android:name=".activity.PaletterActivity">
         </activity>
         <activity android:name=".LiveWallPaper">
         </activity>
+        <activity
+            android:name=".activity.CoordinatorLayoutActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".activity.PixelsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
@@ -63,6 +67,13 @@
         <activity android:name=".activity.TestLoadingView">
         </activity>
         <activity android:name=".activity.TestHutils">
+        </activity>
+        <activity
+            android:name=".activity.AppBarLayoutActivity">
+        </activity>
+        <activity android:name=".activity.AliPayActivity">
+        </activity>
+        <activity android:name=".activity.SliderLayoutActivity">
         </activity>
     </application>
 

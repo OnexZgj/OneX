@@ -1,12 +1,16 @@
 package com.example.linsa.retrofitdemo.activity;
 
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.linsa.retrofitdemo.R;
 import com.example.linsa.retrofitdemo.bean.Student;
+import com.example.linsa.retrofitdemo.designview.CircleView;
 import com.example.linsa.retrofitdemo.util.Common;
 
 import java.io.File;
@@ -14,8 +18,12 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
 import jxl.Workbook;
 import jxl.write.Label;
+import jxl.write.Number;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
@@ -23,7 +31,10 @@ import jxl.write.WriteException;
 public class TestExcelActivity extends AppCompatActivity {
 
 
+    @InjectView(R.id.btn_ate_add)
     Button btnAteAdd;
+    @InjectView(R.id.cv_ate_cv)
+    CircleView cvAteCv;
     private Field[] declaredFields;
     private ArrayList<Student> studentsList;
 
@@ -32,6 +43,15 @@ public class TestExcelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_excel);
+        ButterKnife.inject(this);
+        cvAteCv.start();
+
+        cvAteCv.setDuration(5000);
+        cvAteCv.setStyle(Paint.Style.FILL);
+        cvAteCv.setColor(Color.parseColor("#ff0000"));
+        cvAteCv.setInterpolator(new LinearOutSlowInInterpolator());
+        cvAteCv.start();
+
 
 
         Student student1 = new Student("onex", 15, "男");
@@ -84,11 +104,11 @@ public class TestExcelActivity extends AppCompatActivity {
             for (int i = 0; i < studentsList.size(); i++) {
                 int row = i + 1;
                 for (int j = 0; j < declaredFields.length; j++) {
-                    if (declaredFields[j].getType().toString().equals("class java.lang.String")){
+                    if (declaredFields[j].getType().toString().equals("class java.lang.String")) {
                         Label lable = new Label(j, row, ((String) declaredFields[j].get(studentsList.get(i))));
                         sheet.addCell(lable);
-                    }else {
-                        jxl.write.Number number = new jxl.write.Number(j, row,((Integer) declaredFields[j].get(studentsList.get(i))));
+                    } else {
+                        Number number = new Number(j, row, ((Integer) declaredFields[j].get(studentsList.get(i))));
                         sheet.addCell(number);
                     }
                 }
@@ -116,4 +136,11 @@ public class TestExcelActivity extends AppCompatActivity {
         }
     }
 
+    @OnClick({ R.id.cv_ate_cv})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.cv_ate_cv:
+                break;
+        }
+    }
 }

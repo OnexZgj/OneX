@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context="com.example.linsa.retrofitdemo.activity.TestVector">
 
 
@@ -17,6 +18,47 @@
         android:layout_gravity="center_horizontal"
         android:src="@drawable/vectorlist"  />
 
+    <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:spb_sections_count="4"
+        android:background="@color/black_80"
+        app:spb_colors="@array/pocket_background_colors"
+        app:spb_speed="2.0"
+        app:spb_stroke_width="5dp"
+        app:spb_stroke_separator_length="50dp"
+        app:spb_reversed="false"
+        app:spb_mirror_mode="false"
+        app:spb_progressiveStart_activated="true"
+        app:spb_progressiveStart_speed="0.5"
+        app:spb_progressiveStop_speed="3.4"/>
+
+
+
+    <fr.castorflex.android.circularprogressbar.CircularProgressBar
+        android:layout_marginTop="50dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="240dp"
+        android:layout_height="120dp"
+        android:indeterminate="true"
+        app:cpb_color="#FFee44"
+        app:cpb_colors="@array/pocket_background_colors"
+        app:cpb_rotation_speed="1.0"
+        app:cpb_sweep_speed="8.0"
+        app:cpb_stroke_width="10dp"
+        app:cpb_min_sweep_angle="10"
+        app:cpb_max_sweep_angle="300"
+        />
+
+
+    <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dsb_min="2"
+        app:dsb_max="20"/>
+
 
     <View
         android:layout_width="match_parent"
@@ -25,7 +67,7 @@
 
     <Button
         android:id="@+id/btn_atv_show_img"
-        android:layout_width="344dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="显示vector图片"
         tools:layout_editor_absoluteY="27dp"

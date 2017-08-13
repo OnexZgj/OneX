@@ -22,10 +22,9 @@ public class MyUtils {
      */
     public static <T> T fromXmlToBean(View view, T instanceBean) {
 
-        if (instanceBean==null){
+        if (instanceBean == null) {
             return null;
         }
-
         //获取所有实体bean中的方法
         Method[] methods = instanceBean.getClass().getMethods();
         for (Method method : methods) {
@@ -59,7 +58,7 @@ public class MyUtils {
                                     (Long) Long.parseLong(etText));
                         } else if (aClass == String.class) {
                             method.invoke(instanceBean, etText);
-                        }else{
+                        } else {
                             try {
                                 throw new Exception("MyUtils中没有对应的数据类型!");
                             } catch (Exception e) {
@@ -74,7 +73,56 @@ public class MyUtils {
                 }
             }
         }
-
         return instanceBean;
     }
+
+
+    /**
+     * 将Bean中数据进行设置到对应的控件上
+     *
+     * @param view
+     * @param instanceBean
+     * @param <T>
+     */
+    public static <T> void formBeanToXml(View view, T instanceBean) {
+        if (instanceBean == null) {
+            try {
+                throw new Exception("填充数据为空!");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                //实体bean不为空，进行字段的填充
+                Method[] methods = instanceBean.getClass().getMethods();
+                for (Method method : methods) {
+                    String methodName = method.getName().toUpperCase(Locale.getDefault());
+                    View childView = null;
+                    if (methodName.startsWith("GET")) {
+                        childView = view.findViewWithTag(methodName.substring(3));
+                    }
+
+                    //// TODO: 2017/8/9 不同的控件类型
+
+                    if (childView != null && childView instanceof TextView) {
+
+                        Object getTextFromBean = method.invoke(instanceBean);
+
+                        //// TODO: 2017/8/9 在这里可以进行数据类型的判断和数据进行格式化，如时间日期之类
+                        ((TextView) childView).setText(getTextFromBean.toString());
+
+                    }
+
+
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    }
+
 }

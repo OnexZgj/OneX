@@ -25,4 +25,12 @@
 
 
 
+    <Button
+        android:id="@+id/btn_ath_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bean To Xml"/>
+
+
+
 </LinearLayout>

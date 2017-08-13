@@ -1,5 +1,7 @@
 package com.example.linsa.retrofitdemo.activity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -46,6 +48,16 @@ public class PaletterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paletter);
         ButterKnife.inject(this);
+
+
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(ivApSource, "alpha", 1f, 0.5f);
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(ivApSource, "scaleX", 1f, 1.1f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(ivApSource, "scaleY", 1f, 1.1f);
+        AnimatorSet animatorSet=new AnimatorSet();
+        animatorSet.setDuration(6000);
+        animatorSet.play(alpha).with(scaleX).with(scaleY);
+        animatorSet.start();
+
 
 
     }

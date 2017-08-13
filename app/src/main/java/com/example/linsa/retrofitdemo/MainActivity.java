@@ -1,5 +1,7 @@
 package com.example.linsa.retrofitdemo;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,10 +13,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.linsa.retrofitdemo.activity.AliPayActivity;
+import com.example.linsa.retrofitdemo.activity.AppBarLayoutActivity;
+import com.example.linsa.retrofitdemo.activity.CoordinatorLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.DragGridActivity;
 import com.example.linsa.retrofitdemo.activity.LoginActivity;
 import com.example.linsa.retrofitdemo.activity.PaletterActivity;
 import com.example.linsa.retrofitdemo.activity.PixelsActivity;
+import com.example.linsa.retrofitdemo.activity.SliderLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.TestExcelActivity;
 import com.example.linsa.retrofitdemo.activity.TestHutils;
 import com.example.linsa.retrofitdemo.activity.TestLoadingView;
@@ -61,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
     Button btnAmTestLoading;
     @InjectView(R.id.btn_am_test_hutils)
     Button btnAmTestHutils;
+    @InjectView(R.id.btn_am_test_coor)
+    Button btnAmTestCoor;
+    @InjectView(R.id.btn_am_app_bar)
+    Button btnAmAppBar;
+    @InjectView(R.id.btn_am_ali_pay)
+    Button btnAmAliPay;
+    @InjectView(R.id.btn_am_test_slider_layout)
+    Button btnAmTestSliderLayout;
 
 
     /**
@@ -80,14 +94,21 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
 
-//        initRegisterBroadCast();
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(ivCmAim, "alpha", 1f, 0.8f);
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(ivCmAim, "scaleX", 1f, 1.5f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(ivCmAim, "scaleY", 1f, 1.1f);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setDuration(6000);
+        animatorSet.play(alpha).with(scaleX).with(scaleY);
+        animatorSet.start();
+
 
 //        iMainPresenter = new MainPresenter(this);
 
     }
 
 
-    @OnClick({R.id.btn_am_test_hutils,R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
+    @OnClick({R.id.btn_am_test_slider_layout,R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_am_drag:
@@ -121,9 +142,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, TestLoadingView.class));
                 break;
             case R.id.btn_am_test_hutils:
-                startActivity(new Intent(MainActivity.this,TestHutils.class));
+                startActivity(new Intent(MainActivity.this, TestHutils.class));
                 break;
-
+            case R.id.btn_am_test_coor:
+                startActivity(new Intent(MainActivity.this, CoordinatorLayoutActivity.class));
+                break;
+            case R.id.btn_am_app_bar:
+                startActivity(new Intent(MainActivity.this, AppBarLayoutActivity.class));
+                break;
+            case R.id.btn_am_ali_pay:
+                startActivity(new Intent(MainActivity.this, AliPayActivity.class));
+                break;
+            case R.id.btn_am_test_slider_layout:
+                startActivity(new Intent(MainActivity.this, SliderLayoutActivity.class));
+                break;
         }
     }
 
@@ -226,4 +258,8 @@ public class MainActivity extends AppCompatActivity {
         HttpMethods.getInstance().getTopMovie(subscriber, 0, 4);
     }
 
+
+    @OnClick(R.id.btn_am_test_slider_layout)
+    public void onViewClicked() {
+    }
 }
