@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="100dp">
+
+    <com.example.linsa.retrofitdemo.weidget.LoadingView
+        android:id="@+id/load_more_loading_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <FrameLayout
+        android:id="@+id/load_more_load_fail_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/tv_fail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#0dddb8"
+            android:text="加载失败"/>
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/load_more_load_end_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/tv_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#0dddb8"
+            android:text="没有更多的数据了"/>
+
+    </FrameLayout>
+
+
+</FrameLayout>

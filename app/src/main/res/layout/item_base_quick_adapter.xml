@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    android:layout_weight="5">
+
+    <ImageView
+        android:id="@+id/iv_ibqa_pic"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="140dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/img4"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:orientation="vertical"
+        android:layout_weight="3">
+
+
+        <TextView
+            android:id="@+id/tv_ibqa_title"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/bangumi_index_yellow_bg"
+            android:text="霸王别姬"/>
+
+
+
+        <TextView
+            android:id="@+id/tv_ibqa_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:textColor="@color/pink"
+            android:text="范迪塞尔"/>
+
+        <TextView
+            android:id="@+id/tv_ibqa_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:text="http://www.onex.com"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

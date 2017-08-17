@@ -102,6 +102,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
+
+
+
         Glide.with(this).load("https://img3.doubanio.com/img/celebrity/large/17525.jpg")
                 .error(R.drawable.taylor)
                 .placeholder(R.drawable.lodingview)
