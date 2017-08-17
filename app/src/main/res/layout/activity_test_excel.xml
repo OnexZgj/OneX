@@ -15,12 +15,12 @@
         android:layout_height="wrap_content"
         android:text="生成数据"/>
 
-    <com.example.linsa.retrofitdemo.designview.WaveView
+    <com.example.linsa.retrofitdemo.weidget.WaveView
         android:layout_width="match_parent"
         android:layout_height="100dp"/>
 
 
-    <com.example.linsa.retrofitdemo.designview.CircleView
+    <com.example.linsa.retrofitdemo.weidget.CircleView
         android:id="@+id/cv_ate_cv"
         android:layout_width="800dp"
         android:layout_height="800dp"/>

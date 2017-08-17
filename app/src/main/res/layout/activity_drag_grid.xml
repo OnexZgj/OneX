@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.example.linsa.retrofitdemo.designview.DragGridView
+    <com.example.linsa.retrofitdemo.weidget.DragGridView
         android:id="@+id/mGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
-    <com.example.linsa.retrofitdemo.designview.DragGridView
+    <com.example.linsa.retrofitdemo.weidget.DragGridView
         android:id="@+id/otherGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

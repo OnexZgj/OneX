@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.linsa.retrofitdemo.R;
-import com.example.linsa.retrofitdemo.designview.LoadingView;
+import com.example.linsa.retrofitdemo.weidget.LoadingView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

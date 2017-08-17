@@ -7,8 +7,9 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-
+    <!-- android:excludeFromRecents="true" -->
     <application
         android:name=".RetrofitApp"
         android:allowBackup="true"
@@ -18,7 +19,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:excludeFromRecents="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -28,7 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.LoginActivity"/>
-
         <activity android:name=".activity.DragGridActivity">
         </activity>
         <activity android:name=".activity.PaletterActivity">
@@ -69,12 +68,23 @@
         </activity>
         <activity android:name=".activity.TestHutils">
         </activity>
-        <activity
-            android:name=".activity.AppBarLayoutActivity">
+        <activity android:name=".activity.AppBarLayoutActivity">
         </activity>
         <activity android:name=".activity.AliPayActivity">
         </activity>
         <activity android:name=".activity.SliderLayoutActivity">
+        </activity>
+        <activity android:name=".activity.ReactiveNetworkActivity">
+        </activity>
+        <activity android:name=".activity.SldingLayoutActivity">
+        </activity>
+        <activity android:name=".activity.TestThemeActivity">
+        </activity>
+        <activity android:name=".activity.TestPercentActivity">
+        </activity>
+        <activity android:name=".activity.Html5Activity">
+        </activity>
+        <activity android:name=".activity.BaseAdapterHelperActivity">
         </activity>
     </application>
 

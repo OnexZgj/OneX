@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="clockBackground" format="color" />
+    <attr name="clockTextColor" format="color" />
+
 
     <!-- CircleIndicator -->
     <declare-styleable name="CircleIndicator">
@@ -34,5 +37,10 @@
         <attr name="border_color" format="color" />
         <attr name="border_overlay" format="boolean" />
     </declare-styleable>
+
+
+
+
+
 
 </resources>

@@ -7,7 +7,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.example.linsa.retrofitdemo.designview.DampingScrollView
+    <com.example.linsa.retrofitdemo.weidget.DampingScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -114,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="Test Coor"
+                android:text="Test CoorLayout"
                 />
 
             <Button
@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@color/colorPrimary"
-                android:text="Test AppBarLayout"/>
+                android:text="Test AliPay"/>
 
             <Button
                 android:id="@+id/btn_am_test_slider_layout"
@@ -141,6 +141,44 @@
                 android:background="@color/colorPrimary"
                 android:text="Test Slider Layout"/>
 
+            <Button
+                android:id="@+id/btn_am_reactive_network"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="ReactiveNetWork"/>
+
+            <Button
+                android:id="@+id/btn_am_slding_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="SlidingLayout"/>
+
+
+            <Button
+                android:id="@+id/btn_am_percent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="PercentLayout"/>
+
+            <Button
+                android:id="@+id/btn_am_test_webview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="WebView"/>
+
+            <Button
+                android:id="@+id/btn_am_test_adapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="WebView"/>
 
 
 
@@ -152,7 +190,7 @@
                 android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_22"/>
         </LinearLayout>
-    </com.example.linsa.retrofitdemo.designview.DampingScrollView>
+    </com.example.linsa.retrofitdemo.weidget.DampingScrollView>
 </LinearLayout>
 
 

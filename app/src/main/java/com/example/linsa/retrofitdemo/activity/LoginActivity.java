@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.linsa.retrofitdemo.R;
 import com.example.linsa.retrofitdemo.bean.Movie;
 import com.example.linsa.retrofitdemo.net.RetrofitHelper;
-import com.example.linsa.retrofitdemo.designview.CircleProgressView;
+import com.example.linsa.retrofitdemo.weidget.CircleProgressView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

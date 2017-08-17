@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:textColor="?attr/clockTextColor"
+    tools:context="com.example.linsa.retrofitdemo.activity.TestThemeActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="?attr/clockBackground"
+        android:textColor="?attr/clockTextColor"
+        android:text="Using Theme"/>
+
+    <Button
+        android:id="@+id/btn_att_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/clockBackground"
+        android:textColor="?attr/clockTextColor"
+        android:text="切换主题"/>
+
+
+
+</LinearLayout>

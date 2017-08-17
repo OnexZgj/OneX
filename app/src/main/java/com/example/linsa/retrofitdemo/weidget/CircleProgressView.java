@@ -1,4 +1,4 @@
-package com.example.linsa.retrofitdemo.designview;
+package com.example.linsa.retrofitdemo.weidget;
 
 import android.content.Context;
 import android.content.res.TypedArray;

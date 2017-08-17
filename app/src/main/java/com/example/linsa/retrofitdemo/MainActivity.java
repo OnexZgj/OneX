@@ -11,10 +11,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.linsa.retrofitdemo.activity.AliPayActivity;
 import com.example.linsa.retrofitdemo.activity.AppBarLayoutActivity;
+import com.example.linsa.retrofitdemo.activity.BaseAdapterHelperActivity;
 import com.example.linsa.retrofitdemo.activity.CoordinatorLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.DragGridActivity;
+import com.example.linsa.retrofitdemo.activity.Html5Activity;
 import com.example.linsa.retrofitdemo.activity.LoginActivity;
 import com.example.linsa.retrofitdemo.activity.PaletterActivity;
 import com.example.linsa.retrofitdemo.activity.PixelsActivity;
@@ -22,6 +25,8 @@ import com.example.linsa.retrofitdemo.activity.SliderLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.TestExcelActivity;
 import com.example.linsa.retrofitdemo.activity.TestHutils;
 import com.example.linsa.retrofitdemo.activity.TestLoadingView;
+import com.example.linsa.retrofitdemo.activity.TestPercentActivity;
+import com.example.linsa.retrofitdemo.activity.TestThemeActivity;
 import com.example.linsa.retrofitdemo.activity.TestVector;
 import com.example.linsa.retrofitdemo.bean.Movie;
 import com.example.linsa.retrofitdemo.net.HttpMethods;
@@ -73,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
     Button btnAmAliPay;
     @InjectView(R.id.btn_am_test_slider_layout)
     Button btnAmTestSliderLayout;
+    @InjectView(R.id.btn_am_reactive_network)
+    Button btnAmReactiveNetwork;
+    @InjectView(R.id.btn_am_slding_layout)
+    Button btnAmSldingLayout;
+    @InjectView(R.id.btn_am_percent_layout)
+    Button btnAmPercentLayout;
 
 
     /**
@@ -91,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
+        Glide.with(this).load("https://img3.doubanio.com/img/celebrity/large/17525.jpg")
+                .error(R.drawable.taylor)
+                .placeholder(R.drawable.lodingview)
+                .centerCrop()
+                .crossFade(5000)
+                .into(ivCmAim);
+
 
 //        ObjectAnimator alpha = ObjectAnimator.ofFloat(ivCmAim, "alpha", 1f, 0.8f);
 //        ObjectAnimator scaleX = ObjectAnimator.ofFloat(ivCmAim, "scaleX", 1f, 1.5f);
@@ -106,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_am_test_slider_layout,R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
+    @OnClick({R.id.btn_am_test_adapter,R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_am_drag:
@@ -154,6 +172,22 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_am_test_slider_layout:
                 startActivity(new Intent(MainActivity.this, SliderLayoutActivity.class));
                 break;
+            case R.id.btn_am_reactive_network:
+                //进行异步监测网络状态的改变的一个功能
+                break;
+            case R.id.btn_am_slding_layout:
+                startActivity(new Intent(MainActivity.this, TestThemeActivity.class));
+                break;
+            case R.id.btn_am_percent_layout:
+                startActivity(new Intent(MainActivity.this, TestPercentActivity.class));
+                break;
+            case R.id.btn_am_test_webview:
+                startActivity(new Intent(MainActivity.this, Html5Activity.class));
+                break;
+            case R.id.btn_am_test_adapter:
+                startActivity(new Intent(MainActivity.this,BaseAdapterHelperActivity.class));
+                break;
+
         }
     }
 
@@ -255,7 +289,5 @@ public class MainActivity extends AppCompatActivity {
         };
         HttpMethods.getInstance().getTopMovie(subscriber, 0, 4);
     }
-
-
 
 }

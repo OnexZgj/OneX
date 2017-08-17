@@ -1,4 +1,4 @@
-package com.example.linsa.retrofitdemo.designview;
+package com.example.linsa.retrofitdemo.weidget;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

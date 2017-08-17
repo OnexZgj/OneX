@@ -10,7 +10,7 @@ import android.widget.Button;
 
 import com.example.linsa.retrofitdemo.R;
 import com.example.linsa.retrofitdemo.bean.Student;
-import com.example.linsa.retrofitdemo.designview.CircleView;
+import com.example.linsa.retrofitdemo.weidget.CircleView;
 import com.example.linsa.retrofitdemo.util.Common;
 
 import java.io.File;

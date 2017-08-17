@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.linsa.retrofitdemo.R;
 import com.example.linsa.retrofitdemo.adapter.DragGridAdapter;
-import com.example.linsa.retrofitdemo.designview.DragGridView;
+import com.example.linsa.retrofitdemo.weidget.DragGridView;
 
 import java.util.ArrayList;
 import java.util.List;
