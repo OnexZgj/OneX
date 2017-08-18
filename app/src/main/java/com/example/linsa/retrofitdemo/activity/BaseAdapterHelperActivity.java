@@ -103,6 +103,9 @@ public class BaseAdapterHelperActivity extends AppCompatActivity {
 
 //            mQuickAdapter.setLoadMoreView(new RecycleLoadView());
 
+            //进行设置数据源的操作，与addData()相对应
+//            mQuickAdapter.setNewData(mDataList);
+
             //动画每次加载都会执行
             mQuickAdapter.isFirstOnly(false);
             rvAbahShow.setAdapter(mQuickAdapter);

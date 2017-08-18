@@ -19,6 +19,7 @@ import com.example.linsa.retrofitdemo.activity.CoordinatorLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.DragGridActivity;
 import com.example.linsa.retrofitdemo.activity.Html5Activity;
 import com.example.linsa.retrofitdemo.activity.LoginActivity;
+import com.example.linsa.retrofitdemo.activity.MultiAdapterActivity;
 import com.example.linsa.retrofitdemo.activity.PaletterActivity;
 import com.example.linsa.retrofitdemo.activity.PixelsActivity;
 import com.example.linsa.retrofitdemo.activity.SliderLayoutActivity;
@@ -84,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnAmSldingLayout;
     @InjectView(R.id.btn_am_percent_layout)
     Button btnAmPercentLayout;
+    @InjectView(R.id.btn_am_multiple_adapter)
+    Button btnAmMultipleAdapter;
 
 
     /**
@@ -101,8 +104,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
-
-
 
 
         Glide.with(this).load("https://img3.doubanio.com/img/celebrity/large/17525.jpg")
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_am_test_adapter,R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
+    @OnClick({R.id.btn_am_multiple_adapter, R.id.btn_am_test_adapter, R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_am_drag:
@@ -188,7 +189,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Html5Activity.class));
                 break;
             case R.id.btn_am_test_adapter:
-                startActivity(new Intent(MainActivity.this,BaseAdapterHelperActivity.class));
+                startActivity(new Intent(MainActivity.this, BaseAdapterHelperActivity.class));
+                break;
+            case R.id.btn_am_multiple_adapter:
+                startActivity(new Intent(MainActivity.this, MultiAdapterActivity.class));
                 break;
 
         }

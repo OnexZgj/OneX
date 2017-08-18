@@ -8,5 +8,21 @@ import android.os.Environment;
  */
 
 public class Common {
+
+    /**
+     * 外部储存卡的绝对路径
+     */
     public final static String ROOT_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+
+    /**
+     * 电影导演item
+     */
+    public static final int MOVIE_DIRECT = 0;
+
+
+    /**
+     * 电影条目item
+     */
+    public static final int MOVIE = 2;
 }
