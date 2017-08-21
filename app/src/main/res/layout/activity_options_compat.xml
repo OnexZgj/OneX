@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/iv_aoc_img1"
+        android:layout_width="194dp"
+        android:layout_height="144dp"
+        android:scaleType="fitXY"
+        android:transitionName="taylor"
+        android:src="@drawable/taylor"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <ImageView
+        android:id="@+id/iv_aoc_img2"
+        android:layout_width="194dp"
+        android:layout_height="144dp"
+        android:scaleType="fitXY"
+        android:transitionName="cj"
+        android:src="@drawable/zl"/>
+
+
+
+
+    <Button
+        android:id="@+id/btn_aoc_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Activity Options"/>
+
+
+</LinearLayout>

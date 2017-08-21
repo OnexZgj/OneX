@@ -88,6 +88,13 @@
         </activity>
         <activity android:name=".activity.MultiAdapterActivity">
         </activity>
+        <activity android:name=".activity.DraggleAdapterActivity">
+        </activity>
+        <activity android:name=".activity.OptionsCompatActivity">
+        </activity>
+        <activity android:name=".activity.ShareElementActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

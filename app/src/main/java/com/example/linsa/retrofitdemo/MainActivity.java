@@ -17,9 +17,11 @@ import com.example.linsa.retrofitdemo.activity.AppBarLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.BaseAdapterHelperActivity;
 import com.example.linsa.retrofitdemo.activity.CoordinatorLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.DragGridActivity;
+import com.example.linsa.retrofitdemo.activity.DraggleAdapterActivity;
 import com.example.linsa.retrofitdemo.activity.Html5Activity;
 import com.example.linsa.retrofitdemo.activity.LoginActivity;
 import com.example.linsa.retrofitdemo.activity.MultiAdapterActivity;
+import com.example.linsa.retrofitdemo.activity.OptionsCompatActivity;
 import com.example.linsa.retrofitdemo.activity.PaletterActivity;
 import com.example.linsa.retrofitdemo.activity.PixelsActivity;
 import com.example.linsa.retrofitdemo.activity.SliderLayoutActivity;
@@ -87,6 +89,12 @@ public class MainActivity extends AppCompatActivity {
     Button btnAmPercentLayout;
     @InjectView(R.id.btn_am_multiple_adapter)
     Button btnAmMultipleAdapter;
+    @InjectView(R.id.btn_am_test_webview)
+    Button btnAmTestWebview;
+    @InjectView(R.id.btn_am_test_adapter)
+    Button btnAmTestAdapter;
+    @InjectView(R.id.btn_am_drag_adapter)
+    Button btnAmDragAdapter;
 
 
     /**
@@ -128,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_am_multiple_adapter, R.id.btn_am_test_adapter, R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
+    @OnClick({R.id.btn_am_activity_options,R.id.btn_am_drag_adapter,R.id.btn_am_multiple_adapter, R.id.btn_am_test_adapter, R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_am_drag:
@@ -193,6 +201,29 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_am_multiple_adapter:
                 startActivity(new Intent(MainActivity.this, MultiAdapterActivity.class));
+                break;
+            case R.id.btn_am_drag_adapter:
+                startActivity(new Intent(MainActivity.this,DraggleAdapterActivity.class));
+                break;
+            case R.id.btn_am_activity_options:
+
+//                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
+//                        MainActivity.this,
+//                        ivCmAim,
+//                        "OneX_Zgj"
+//                );
+
+
+//                ActivityOptionsCompat optionsCompat=ActivityOptionsCompat.makeCustomAnimation(MainActivity.this,R.anim.translate_in,R.anim.translate_out);
+//                ActivityOptionsCompat optionsCompat=ActivityOptionsCompat.makeScaleUpAnimation(ivCmAim,ivCmAim.getWidth(),ivCmAim.getHeight(),0,0);
+
+
+//                ActivityOptionsCompat optionsCompat=ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this);
+//                ActivityCompat.startActivity(MainActivity.this,intent,optionsCompat.toBundle());
+
+
+                startActivity(new Intent(MainActivity.this, OptionsCompatActivity.class));
+
                 break;
 
         }

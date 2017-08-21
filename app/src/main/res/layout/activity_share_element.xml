@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.linsa.retrofitdemo.activity.ShareElementActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_ase_top"
+        android:layout_width="match_parent"
+        android:background="@color/bangumi_index_yellow_bg"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.Toolbar>
+
+
+    <ImageView
+        android:id="@+id/iv_ase_zl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:transitionName="zl"
+        android:src="@drawable/zl"/>
+
+
+
+
+    <ImageView
+        android:id="@+id/iv_ase_taylor"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:transitionName="taylor"
+        android:src="@drawable/taylor"/>
+
+</LinearLayout>
