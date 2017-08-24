@@ -87,7 +87,7 @@ public class DragGridActivity extends AppCompatActivity {
         @Override
         public View getItemView(int position, View convertView, ViewGroup parent) {
             String text = getList().get(position);
-            convertView = LayoutInflater.from(DragGridActivity.this).inflate(R.layout.item, null);
+            convertView = LayoutInflater.from(DragGridActivity.this).inflate(R.layout.item_test, null);
             TextView tv_text = (TextView) convertView.findViewById(R.id.tv_text);
             tv_text.setText(text);
             return convertView;

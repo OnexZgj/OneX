@@ -30,6 +30,15 @@ public class RetrofitHelper {
     private static OkHttpClient mOkHttpClient;
 
 
+
+    /**
+     * 静态代码块
+     */
+    static {
+        initOkHttpClient();
+    }
+
+
     /**
      * 在后期的代码中只需要进行添加这个相关的一些方法，也和retrofit的使用相关，不同的请求地址和参数，对应不同的接口和请求的方法。
      * @return
@@ -37,6 +46,11 @@ public class RetrofitHelper {
     public static MovieService getMovieAPI() {
         return createApi(MovieService.class, HttpMethods.BASE_URL);
     }
+
+
+
+
+
 
     /**
      * 进行初始化retrofit的代码和进行创建相应的网络请求的方法
@@ -55,12 +69,6 @@ public class RetrofitHelper {
     }
 
 
-    /**
-     * 静态代码块
-     */
-    static {
-        initOkHttpClient();
-    }
 
     /**
      * 初始化OKHttpClient,设置缓存,设置超时时间,设置打印日志,

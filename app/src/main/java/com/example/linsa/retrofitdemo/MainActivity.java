@@ -21,6 +21,7 @@ import com.example.linsa.retrofitdemo.activity.DraggleAdapterActivity;
 import com.example.linsa.retrofitdemo.activity.Html5Activity;
 import com.example.linsa.retrofitdemo.activity.LoginActivity;
 import com.example.linsa.retrofitdemo.activity.MultiAdapterActivity;
+import com.example.linsa.retrofitdemo.activity.MyActivity;
 import com.example.linsa.retrofitdemo.activity.OptionsCompatActivity;
 import com.example.linsa.retrofitdemo.activity.PaletterActivity;
 import com.example.linsa.retrofitdemo.activity.PixelsActivity;
@@ -95,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
     Button btnAmTestAdapter;
     @InjectView(R.id.btn_am_drag_adapter)
     Button btnAmDragAdapter;
+    @InjectView(R.id.btn_am_activity_options)
+    Button btnAmActivityOptions;
+    @InjectView(R.id.btn_am_double_process)
+    Button btnAmDoubleProcess;
 
 
     /**
@@ -136,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_am_activity_options,R.id.btn_am_drag_adapter,R.id.btn_am_multiple_adapter, R.id.btn_am_test_adapter, R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
+    @OnClick({R.id.btn_am_double_process,R.id.btn_am_activity_options, R.id.btn_am_drag_adapter, R.id.btn_am_multiple_adapter, R.id.btn_am_test_adapter, R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_am_drag:
@@ -203,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MultiAdapterActivity.class));
                 break;
             case R.id.btn_am_drag_adapter:
-                startActivity(new Intent(MainActivity.this,DraggleAdapterActivity.class));
+                startActivity(new Intent(MainActivity.this, DraggleAdapterActivity.class));
                 break;
             case R.id.btn_am_activity_options:
 
@@ -224,6 +229,9 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity(new Intent(MainActivity.this, OptionsCompatActivity.class));
 
+                break;
+            case R.id.btn_am_double_process:
+                startActivity(new Intent(MainActivity.this,MyActivity.class));
                 break;
 
         }
@@ -327,5 +335,6 @@ public class MainActivity extends AppCompatActivity {
         };
         HttpMethods.getInstance().getTopMovie(subscriber, 0, 4);
     }
+
 
 }

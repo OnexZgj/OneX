@@ -33,7 +33,7 @@
     <!--banner height size-->
     <dimen name="general_banner_height">126dp</dimen>
 
-    <!--video item common strip size-->
+    <!--video item_test common strip size-->
     <dimen name="video_item_layout_height">90dp</dimen>
     <dimen name="video_item_image_width">140dp</dimen>
     <dimen name="video_item_layout_small_height">90dp</dimen>
