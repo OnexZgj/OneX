@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/btn_aulf_upload_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="上传文件"/>
+
+
+    <Button
+        android:id="@+id/btn_aulf_ok_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Okhttp"/>
+
+
+
+    <Button
+        android:id="@+id/btn_aulf_retrofit_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RetroFit upLoad"/>
+
+
+    <ProgressBar
+        android:id="@+id/pb_aulf_upload"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

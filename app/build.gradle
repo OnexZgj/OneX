@@ -27,6 +27,8 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'com.daimajia.slider:library:1.1.5@aar'
     compile 'com.android.support:palette-v7:26.0.0-alpha1'
+
+
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'com.daimajia.slider:library:1.1.5@aar'
     compile 'com.android.support:palette-v7:26.0.0-alpha1'
@@ -53,10 +55,9 @@ dependencies {
     compile 'com.android.support:percent:22.2.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
-    testCompile 'junit:junit:4.12'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.2'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
-
-
     compile 'com.lorentzos.swipecards:library:1.0.9@aar'
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.lzy.net:okgo:3.0.4'
+
 }

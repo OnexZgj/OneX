@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+
     <!-- android:excludeFromRecents="true" -->
     <application
         android:name=".RetrofitApp"
@@ -98,6 +99,8 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity android:name=".activity.SwipeCardActivity">
+        </activity>
+        <activity android:name=".activity.UpLoadFileActivity">
         </activity>
     </application>
 

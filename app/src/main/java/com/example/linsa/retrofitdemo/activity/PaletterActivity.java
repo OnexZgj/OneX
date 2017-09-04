@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.linsa.retrofitdemo.R;
+import com.example.linsa.retrofitdemo.util.BitmapUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,12 +111,14 @@ public class PaletterActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.btn_ap_gpc:
                 Bitmap bitmap = ((BitmapDrawable) ivApSource.getDrawable()).getBitmap();
+                Bitmap compressBitmap = BitmapUtils.compressBitmapBySizw(bitmap, 1024);
+                Toast.makeText(PaletterActivity.this, "bitmap"+(bitmap.getRowBytes()*bitmap.getHeight())/1024 +"  compressBitmap"+(compressBitmap.getRowBytes()*bitmap.getHeight())/1024, Toast.LENGTH_SHORT).show();
                 if (bitmap == null) {
                     return;
                 }
 
                 //进行获取颜色
-                Palette.from(bitmap).generate(listener);
+                Palette.from(compressBitmap).generate(listener);
 
 
                 break;

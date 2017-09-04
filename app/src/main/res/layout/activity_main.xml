@@ -215,6 +215,17 @@
                 android:text="Activity btn_am_double_process"/>
 
 
+
+            <Button
+                android:id="@+id/btn_am_activity_uploadFile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:text="upLoadFile"/>
+
+
+
             <ImageView
                 android:id="@+id/iv_cm_aim"
                 android:layout_width="match_parent"

@@ -23,6 +23,10 @@ import rx.schedulers.Schedulers;
 
 public class HttpMethods {
     public static final String BASE_URL = "https://api.douban.com/v2/movie/";
+
+
+
+    public static final String BASE_URL2 = "http://192.168.1.183:8080/UpLoadFile/servlet/";
     private static final int DEFAULT_TIMEOUT = 5;
     private final MovieService movieService;
 

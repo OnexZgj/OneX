@@ -49,6 +49,11 @@ public class RetrofitHelper {
 
 
 
+    public static UpLoadFileService getUpLoadFileAPI(){
+        return createApi(UpLoadFileService.class,HttpMethods.BASE_URL2);
+    }
+
+
 
 
 
