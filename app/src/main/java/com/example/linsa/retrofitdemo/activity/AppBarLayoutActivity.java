@@ -11,6 +11,7 @@ import butterknife.InjectView;
 
 //测试AppBarLayout的使用 我的天空
 //测试AppBarLayout的使用 By张更杰
+//我和他
 public class AppBarLayoutActivity extends AppCompatActivity {
 
     @InjectView(R.id.tb_aabl_toolbar)
