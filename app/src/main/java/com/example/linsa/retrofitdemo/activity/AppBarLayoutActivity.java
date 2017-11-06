@@ -9,6 +9,7 @@ import com.example.linsa.retrofitdemo.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+//测试AppBarLayout的使用 我的天空
 //测试AppBarLayout的使用 By张更杰
 public class AppBarLayoutActivity extends AppCompatActivity {
 
