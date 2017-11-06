@@ -48,6 +48,10 @@ public class RetrofitHelper {
     }
 
 
+    public static DesService getDesAPI(){
+        return createApi(DesService.class,HttpMethods.BASE_URL2);
+    }
+
 
     public static UpLoadFileService getUpLoadFileAPI(){
         return createApi(UpLoadFileService.class,HttpMethods.BASE_URL2);

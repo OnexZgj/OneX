@@ -12,7 +12,7 @@ import com.example.linsa.retrofitdemo.util.StateBarTranslucentUtils;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class ShareElementActivity extends AppCompatActivity {
+public class ShareElementActivity extends AppCompatActivity implements IShareElementActivity {
 
     @InjectView(R.id.tb_ase_top)
     Toolbar tbAseTop;
@@ -34,7 +34,8 @@ public class ShareElementActivity extends AppCompatActivity {
     }
 
     //初始化ActionBar
-    private void initActionBar() {
+    @Override
+    public void initActionBar() {
 
         tbAseTop.setTitle("Test SceneTransitionAnimation");
         tbAseTop.setTitleTextColor(Color.RED);

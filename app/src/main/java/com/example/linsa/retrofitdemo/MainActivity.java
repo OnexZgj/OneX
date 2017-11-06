@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.linsa.retrofitdemo.activity.AliPayActivity;
+import com.example.linsa.retrofitdemo.activity.ListViewActivity;
 import com.example.linsa.retrofitdemo.activity.AppBarLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.BaseAdapterHelperActivity;
 import com.example.linsa.retrofitdemo.activity.CoordinatorLayoutActivity;
@@ -22,9 +22,13 @@ import com.example.linsa.retrofitdemo.activity.Html5Activity;
 import com.example.linsa.retrofitdemo.activity.LoginActivity;
 import com.example.linsa.retrofitdemo.activity.MultiAdapterActivity;
 import com.example.linsa.retrofitdemo.activity.MyActivity;
+import com.example.linsa.retrofitdemo.activity.OpeGlActivity;
 import com.example.linsa.retrofitdemo.activity.OptionsCompatActivity;
 import com.example.linsa.retrofitdemo.activity.PaletterActivity;
 import com.example.linsa.retrofitdemo.activity.PixelsActivity;
+import com.example.linsa.retrofitdemo.activity.PorterDuffXfermodeActivity;
+import com.example.linsa.retrofitdemo.activity.RecycleHolderActivity;
+import com.example.linsa.retrofitdemo.activity.RecycleLoadmoreActivity;
 import com.example.linsa.retrofitdemo.activity.SliderLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.TestExcelActivity;
 import com.example.linsa.retrofitdemo.activity.TestHutils;
@@ -33,9 +37,11 @@ import com.example.linsa.retrofitdemo.activity.TestPercentActivity;
 import com.example.linsa.retrofitdemo.activity.TestThemeActivity;
 import com.example.linsa.retrofitdemo.activity.TestVector;
 import com.example.linsa.retrofitdemo.activity.UpLoadFileActivity;
+import com.example.linsa.retrofitdemo.bean.DesContent;
 import com.example.linsa.retrofitdemo.bean.Movie;
 import com.example.linsa.retrofitdemo.net.HttpMethods;
 import com.example.linsa.retrofitdemo.net.MovieService;
+import com.example.linsa.retrofitdemo.net.RetrofitHelper;
 import com.example.linsa.retrofitdemo.presenter.IMainPresenter;
 import com.example.linsa.retrofitdemo.util.ImageBlurUtil;
 
@@ -101,7 +107,16 @@ public class MainActivity extends AppCompatActivity {
     Button btnAmActivityOptions;
     @InjectView(R.id.btn_am_double_process)
     Button btnAmDoubleProcess;
-
+    @InjectView(R.id.btn_am_activity_uploadFile)
+    Button btnAmActivityUploadFile;
+    @InjectView(R.id.btn_am_opengl)
+    Button btnAmOpengl;
+    @InjectView(R.id.btn_am_recycleHoder)
+    Button btnAmRecycleHoder;
+    @InjectView(R.id.btn_am_pdm)
+    Button btnAmPdm;
+    @InjectView(R.id.btn_am_load_more_recycle)
+    Button btnAmLoadMoreRecycle;
 
     /**
      * 中间的协调层
@@ -142,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({ R.id.btn_am_activity_uploadFile,R.id.btn_am_double_process,R.id.btn_am_activity_options, R.id.btn_am_drag_adapter, R.id.btn_am_multiple_adapter, R.id.btn_am_test_adapter, R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
+    @OnClick({R.id.btn_am_load_more_recycle,R.id.btn_am_pdm,R.id.btn_am_recycleHoder, R.id.btn_am_opengl, R.id.btn_am_activity_uploadFile, R.id.btn_am_double_process, R.id.btn_am_activity_options, R.id.btn_am_drag_adapter, R.id.btn_am_multiple_adapter, R.id.btn_am_test_adapter, R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_am_drag:
@@ -152,7 +167,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, PaletterActivity.class));
                 break;
             case R.id.btn_cm_request:
-                getMovieThird();
+//                getDesContent();
+
+                getDesContentSecond();
+
                 break;
             case R.id.btn_cm_img:
                 imgblur();
@@ -185,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AppBarLayoutActivity.class));
                 break;
             case R.id.btn_am_ali_pay:
-                startActivity(new Intent(MainActivity.this, AliPayActivity.class));
+                startActivity(new Intent(MainActivity.this, ListViewActivity.class));
                 break;
             case R.id.btn_am_test_slider_layout:
                 startActivity(new Intent(MainActivity.this, SliderLayoutActivity.class));
@@ -232,10 +250,23 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.btn_am_double_process:
-                startActivity(new Intent(MainActivity.this,MyActivity.class));
+                startActivity(new Intent(MainActivity.this, MyActivity.class));
                 break;
             case R.id.btn_am_activity_uploadFile:
-                startActivity(new Intent(MainActivity.this,UpLoadFileActivity.class));
+                startActivity(new Intent(MainActivity.this, UpLoadFileActivity.class));
+                break;
+            case R.id.btn_am_opengl:
+
+                startActivity(new Intent(MainActivity.this, OpeGlActivity.class));
+                break;
+            case R.id.btn_am_recycleHoder:
+                startActivity(new Intent(MainActivity.this, RecycleHolderActivity.class));
+                break;
+            case R.id.btn_am_pdm:
+                startActivity(new Intent(MainActivity.this, PorterDuffXfermodeActivity.class));
+                break;
+            case R.id.btn_am_load_more_recycle:
+                startActivity(new Intent(MainActivity.this,RecycleLoadmoreActivity.class));
                 break;
 
         }
@@ -317,6 +348,58 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
     }
+
+
+    /**
+     * 测试okhttpClient的一些使用
+     */
+    public void getDesContent() {
+
+
+        Subscriber<DesContent> subscriber = new Subscriber<DesContent>() {
+            @Override
+            public void onCompleted() {
+                Toast.makeText(MainActivity.this, "Get Des Completed", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.i("TAG", "onError:   " + e.toString());
+                Toast.makeText(MainActivity.this, "网络请求出错!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNext(DesContent desContent) {
+                Toast.makeText(MainActivity.this, desContent.getTotal() + "...", Toast.LENGTH_SHORT).show();
+            }
+        };
+        HttpMethods.getInstance().getDescontent(subscriber);
+
+
+    }
+
+
+    public void getDesContentSecond() {
+        RetrofitHelper.getDesAPI().getDesContent().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<DesContent>() {
+                    @Override
+                    public void onCompleted() {
+                        Toast.makeText(MainActivity.this, "get Data complete!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(MainActivity.this, "get Data Error!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onNext(DesContent desContent) {
+                        Toast.makeText(MainActivity.this, "---" + desContent.getStart() + "---", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
 
     public void getMovieThird() {
 

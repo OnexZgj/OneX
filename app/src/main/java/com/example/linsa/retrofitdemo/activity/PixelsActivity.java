@@ -14,7 +14,7 @@ import com.example.linsa.retrofitdemo.broadcast.BootCompleteReceiver;
 /**
  * 1px像素值保活进程
  */
-public class PixelsActivity extends AppCompatActivity {
+public class PixelsActivity extends AppCompatActivity implements IPixelsActivity {
 
     private static PixelsActivity instance;
     private BootCompleteReceiver bootCompleteReceiver;

@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@color/colorPrimary"
-                android:text="Test AliPay"/>
+                android:text="Test ListView"/>
 
             <Button
                 android:id="@+id/btn_am_test_slider_layout"
@@ -223,6 +223,33 @@
                 android:layout_margin="8dp"
                 android:background="@color/colorPrimary"
                 android:text="upLoadFile"/>
+
+
+            <Button
+                android:id="@+id/btn_am_opengl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Activity OpenGl"/>
+
+            <Button
+                android:id="@+id/btn_am_recycleHoder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RecycleViewHolder"/>
+
+            <Button
+                android:id="@+id/btn_am_pdm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PorterDufferMode Test"/>
+
+
+            <Button
+                android:id="@+id/btn_am_load_more_recycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PorterDufferMode Test"/>
 
 
 

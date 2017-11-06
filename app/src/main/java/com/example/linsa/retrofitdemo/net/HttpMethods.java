@@ -1,6 +1,7 @@
 package com.example.linsa.retrofitdemo.net;
 
 import com.example.linsa.retrofitdemo.RetrofitApp;
+import com.example.linsa.retrofitdemo.bean.DesContent;
 import com.example.linsa.retrofitdemo.bean.Movie;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
@@ -26,9 +27,10 @@ public class HttpMethods {
 
 
 
-    public static final String BASE_URL2 = "http://192.168.1.183:8080/UpLoadFile/servlet/";
-    private static final int DEFAULT_TIMEOUT = 5;
-    private final MovieService movieService;
+    public static final String BASE_URL2 = "http://172.16.129.77:8080/WEB22/";
+    private static final int DEFAULT_TIMEOUT = 10;
+    private final MovieService movieService=null;
+    private final DesService desService;
 
     private HttpMethods() {
 
@@ -50,12 +52,13 @@ public class HttpMethods {
         Retrofit retrofit = new Retrofit.Builder().
                 addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl(BASE_URL)
+                .baseUrl(BASE_URL2)
                 .client(okBuilder.build())
                 .build();
 
         //初始化接口方法中的实例
-        movieService = retrofit.create(MovieService.class);
+//        movieService = retrofit.create(MovieService.class);
+        desService = retrofit.create(DesService.class);
 
     }
 
@@ -64,6 +67,18 @@ public class HttpMethods {
         private static final HttpMethods INSTANCE = new HttpMethods();
     }
 
+
+
+    public void getDescontent(Subscriber<DesContent> subscriber) {
+        if (desService != null) {
+            desService.getDesContent()
+                    .subscribeOn(Schedulers.io())
+                    .unsubscribeOn(Schedulers.io())
+                    //观察者的运行的线程
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(subscriber);
+        }
+    }
 
     public void getTopMovie(Subscriber<Movie> subscriber, int start, int count) {
         if (movieService != null) {
@@ -75,6 +90,8 @@ public class HttpMethods {
                     .subscribe(subscriber);
         }
     }
+
+
 
     public static HttpMethods getInstance() {
         return SingletonHolder.INSTANCE;

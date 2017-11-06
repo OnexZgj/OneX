@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/srcIn"
+        android:title="SRCIN"/>
+    <item
+        android:id="@+id/clear"
+        android:title="CLEAR"/>
+    <item
+        android:id="@+id/srcOut"
+        android:title="srcOut"/>
+    <item
+        android:id="@+id/lighten"
+        android:title="Lighten"/>
+
+</menu>

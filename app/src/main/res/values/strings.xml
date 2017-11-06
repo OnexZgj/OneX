@@ -11,6 +11,9 @@
     </string-array>
 
 
+    <string name="nearOverText">即将售罄</string>
+    <string name="overText">已售罄</string>
+
     <string name="action_settings">Settings</string>
 
     <string name="person_name">孙骁骁</string>

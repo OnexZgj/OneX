@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-
     <!-- android:excludeFromRecents="true" -->
     <application
         android:name=".RetrofitApp"
@@ -72,7 +71,7 @@
         </activity>
         <activity android:name=".activity.AppBarLayoutActivity">
         </activity>
-        <activity android:name=".activity.AliPayActivity">
+        <activity android:name=".activity.ListViewActivity">
         </activity>
         <activity android:name=".activity.SliderLayoutActivity">
         </activity>
@@ -101,6 +100,14 @@
         <activity android:name=".activity.SwipeCardActivity">
         </activity>
         <activity android:name=".activity.UpLoadFileActivity">
+        </activity>
+        <activity android:name=".activity.OpeGlActivity">
+        </activity>
+        <activity android:name=".activity.RecycleHolderActivity">
+        </activity>
+        <activity android:name=".activity.PorterDuffXfermodeActivity">
+        </activity>
+        <activity android:name=".activity.RecycleLoadmoreActivity">
         </activity>
     </application>
 
