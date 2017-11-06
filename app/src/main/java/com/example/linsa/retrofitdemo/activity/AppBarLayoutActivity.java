@@ -9,7 +9,7 @@ import com.example.linsa.retrofitdemo.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-//测试AppBarLayout的使用
+//测试AppBarLayout的使用 By张更杰
 public class AppBarLayoutActivity extends AppCompatActivity {
 
     @InjectView(R.id.tb_aabl_toolbar)
