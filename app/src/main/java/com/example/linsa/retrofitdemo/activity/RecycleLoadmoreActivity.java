@@ -3,7 +3,7 @@ package com.example.linsa.retrofitdemo.activity;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.linsa.retrofitdemo.R;
@@ -30,18 +30,19 @@ public class RecycleLoadmoreActivity extends AppCompatActivity {
     private LoadMoreAdapter loadMoreAdapter;
 
     private ArrayList<String> dataList = new ArrayList<>();
+    private GridLayoutManager gridLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle_loadmore);
         ButterKnife.inject(this);
+
         initListener();
+
         loadData();
 
         initAdapter();
-
-
 
     }
 
@@ -76,7 +77,25 @@ public class RecycleLoadmoreActivity extends AppCompatActivity {
         loadMoreAdapter = new LoadMoreAdapter(dataList);
         arlRvRecycleview.setAdapter(loadMoreAdapter);
 
-        arlRvRecycleview.setLayoutManager(new LinearLayoutManager(this));
+        gridLayoutManager = new GridLayoutManager(this, 2);
+        arlRvRecycleview.setLayoutManager(gridLayoutManager);
+
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                final int viewType = arlRvRecycleview.getAdapter().getItemViewType(position);
+                if (viewType == loadMoreAdapter.TYPE_ITEM) {
+                    return 1;
+                } else if (viewType==loadMoreAdapter.TYPE_FOOTER) {
+                    return gridLayoutManager.getSpanCount();
+                }else {
+                    return 0;
+                }
+            }
+        });
+
+
+
 
         arlRvRecycleview.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
             @Override
