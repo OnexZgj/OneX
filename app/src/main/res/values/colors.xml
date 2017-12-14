@@ -9,6 +9,7 @@
     <color name="blue_30">#20C1FD</color>
     <color name="white">#FFFFFF</color>
     <color name="white_30">#F2F2F2</color>
+    <color name="transparent">#00000000</color>
 
     <color name="color3A3A3A">#3A3A3A</color>
     <color name="color3F3F3F">#3F3F3F</color>

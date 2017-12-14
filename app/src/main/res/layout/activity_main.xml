@@ -236,7 +236,8 @@
                 android:id="@+id/btn_am_recycleHoder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RecycleViewHolder"/>
+                android:text="RecycleViewHolder"
+                android:background="@color/colorPrimary"/>
 
             <Button
                 android:id="@+id/btn_am_pdm"
@@ -249,7 +250,38 @@
                 android:id="@+id/btn_am_load_more_recycle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="PorterDufferMode Test"/>
+                android:text="RecycleView LoadMore"
+                android:background="@color/colorPrimary"/>
+
+            <Button
+                android:id="@+id/btn_am_down_okgo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" download file"/>
+
+            <Button
+            android:id="@+id/btn_am_zh_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RecycleView LoadMore"
+            android:background="@color/colorPrimary"/>
+
+            <Button
+                android:id="@+id/btn_am_zh_analysis_canvas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Canvas Api "/>
+
+
+            <Button
+                android:id="@+id/btn_am_view_animation_utils"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewAnimationUtils"
+                android:background="@color/colorPrimary"/>
+
+
+
 
 
 

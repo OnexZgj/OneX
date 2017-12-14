@@ -14,20 +14,27 @@
         android:orientation="horizontal"
         android:gravity="center">
 
-        <ProgressBar
+        <com.example.linsa.retrofitdemo.weidget.LoadingView
+            android:id="@+id/pb_loading"
+            android:layout_width="50dp"
+            android:layout_height="30dp"/>
+
+ <!--       <ProgressBar
             android:id="@+id/pb_loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateDrawable="@drawable/progressbar_refresh"/>
+            android:indeterminateDrawable="@drawable/progressbar_refresh"/>-->
 
         <TextView
             android:id="@+id/tv_loading"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="15dp"
+            android:gravity="center_vertical"
             android:text="正在加载..."
             android:textColor="#4DB6AC"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:visibility="gone"/>
 
 
 
@@ -75,12 +82,12 @@
     <LinearLayout
         android:id="@+id/ll_warn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <View
             android:layout_width="0dp"
