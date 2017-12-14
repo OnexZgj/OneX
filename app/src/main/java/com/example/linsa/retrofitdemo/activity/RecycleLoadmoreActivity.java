@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.linsa.retrofitdemo.R;
@@ -76,6 +77,12 @@ public class RecycleLoadmoreActivity extends AppCompatActivity {
     private void initAdapter() {
         loadMoreAdapter = new LoadMoreAdapter(dataList);
         arlRvRecycleview.setAdapter(loadMoreAdapter);
+
+        //----------进行一条数据的展示 ----------
+        LinearLayoutManager manager=new LinearLayoutManager(this);
+        arlRvRecycleview.setLayoutManager(manager);
+        //----------进行一条数据的展示 ----------
+
 
         gridLayoutManager = new GridLayoutManager(this, 2);
         arlRvRecycleview.setLayoutManager(gridLayoutManager);
