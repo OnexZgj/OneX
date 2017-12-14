@@ -13,11 +13,11 @@ import com.example.linsa.retrofitdemo.R;
 
 class MyHolder extends RecyclerView.ViewHolder {
 
-    public TextView mtvText;
+    public TextView mtvTextView;
 
     public MyHolder(View itemView) {
         super(itemView);
-        mtvText = (TextView) itemView.findViewById(R.id.tv_text);
+        mtvTextView = itemView.findViewById(R.id.tv_text);
     }
 
 

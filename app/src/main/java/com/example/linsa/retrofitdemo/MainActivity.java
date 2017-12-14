@@ -3,22 +3,26 @@ package com.example.linsa.retrofitdemo;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.linsa.retrofitdemo.activity.ListViewActivity;
+import com.example.linsa.retrofitdemo.activity.AnalysisCanvasActivity;
 import com.example.linsa.retrofitdemo.activity.AppBarLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.BaseAdapterHelperActivity;
 import com.example.linsa.retrofitdemo.activity.CoordinatorLayoutActivity;
 import com.example.linsa.retrofitdemo.activity.DragGridActivity;
 import com.example.linsa.retrofitdemo.activity.DraggleAdapterActivity;
 import com.example.linsa.retrofitdemo.activity.Html5Activity;
+import com.example.linsa.retrofitdemo.activity.ListViewActivity;
 import com.example.linsa.retrofitdemo.activity.LoginActivity;
 import com.example.linsa.retrofitdemo.activity.MultiAdapterActivity;
 import com.example.linsa.retrofitdemo.activity.MyActivity;
@@ -37,6 +41,8 @@ import com.example.linsa.retrofitdemo.activity.TestPercentActivity;
 import com.example.linsa.retrofitdemo.activity.TestThemeActivity;
 import com.example.linsa.retrofitdemo.activity.TestVector;
 import com.example.linsa.retrofitdemo.activity.UpLoadFileActivity;
+import com.example.linsa.retrofitdemo.activity.ViewAnimationUtilsActivity;
+import com.example.linsa.retrofitdemo.activity.ZhiHuActivity;
 import com.example.linsa.retrofitdemo.bean.DesContent;
 import com.example.linsa.retrofitdemo.bean.Movie;
 import com.example.linsa.retrofitdemo.net.HttpMethods;
@@ -44,6 +50,7 @@ import com.example.linsa.retrofitdemo.net.MovieService;
 import com.example.linsa.retrofitdemo.net.RetrofitHelper;
 import com.example.linsa.retrofitdemo.presenter.IMainPresenter;
 import com.example.linsa.retrofitdemo.util.ImageBlurUtil;
+import com.example.linsa.retrofitdemo.weidget.AlwaysShowToast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -117,6 +124,12 @@ public class MainActivity extends AppCompatActivity {
     Button btnAmPdm;
     @InjectView(R.id.btn_am_load_more_recycle)
     Button btnAmLoadMoreRecycle;
+    @InjectView(R.id.btn_am_zh_recycle)
+    Button btnAmZhRecycle;
+    @InjectView(R.id.btn_am_zh_analysis_canvas)
+    Button btnAmZhAnalysisCanvas;
+    @InjectView(R.id.btn_am_view_animation_utils)
+    Button btnAmViewAnimationUtils;
 
     /**
      * 中间的协调层
@@ -134,6 +147,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
+
+        TextView tv = new TextView(this);
+        tv.setText("F");
+        tv.setBackgroundColor(Color.RED);
+
+        AlwaysShowToast toast = new AlwaysShowToast(getApplicationContext());
+        toast.setView(tv, 80, 36);
+        toast.show();
+        toast.setGravity(Gravity.CENTER, 0, 0);
 
         Glide.with(this).load("https://img3.doubanio.com/img/celebrity/large/17525.jpg")
                 .error(R.drawable.taylor)
@@ -157,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_am_load_more_recycle,R.id.btn_am_pdm,R.id.btn_am_recycleHoder, R.id.btn_am_opengl, R.id.btn_am_activity_uploadFile, R.id.btn_am_double_process, R.id.btn_am_activity_options, R.id.btn_am_drag_adapter, R.id.btn_am_multiple_adapter, R.id.btn_am_test_adapter, R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
+    @OnClick({R.id.btn_am_view_animation_utils,R.id.btn_am_zh_analysis_canvas, R.id.btn_am_zh_recycle, R.id.btn_am_load_more_recycle, R.id.btn_am_pdm, R.id.btn_am_recycleHoder, R.id.btn_am_opengl, R.id.btn_am_activity_uploadFile, R.id.btn_am_double_process, R.id.btn_am_activity_options, R.id.btn_am_drag_adapter, R.id.btn_am_multiple_adapter, R.id.btn_am_test_adapter, R.id.btn_am_test_webview, R.id.btn_am_percent_layout, R.id.btn_am_reactive_network, R.id.btn_am_slding_layout, R.id.btn_am_test_slider_layout, R.id.btn_am_ali_pay, R.id.btn_am_app_bar, R.id.btn_am_test_coor, R.id.btn_am_test_hutils, R.id.btn_am_test_loading, R.id.btn_am_test_vector, R.id.btn_am_process, R.id.btn_am_drag, R.id.btn_am_paletter, R.id.btn_cm_request, R.id.btn_cm_img, R.id.btn_cm_login, R.id.btn_am_live_wallpaper, R.id.btn_am_test_excel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_am_drag:
@@ -167,10 +189,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, PaletterActivity.class));
                 break;
             case R.id.btn_cm_request:
-//                getDesContent();
-
                 getDesContentSecond();
-
                 break;
             case R.id.btn_cm_img:
                 imgblur();
@@ -266,8 +285,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, PorterDuffXfermodeActivity.class));
                 break;
             case R.id.btn_am_load_more_recycle:
-                startActivity(new Intent(MainActivity.this,RecycleLoadmoreActivity.class));
+                startActivity(new Intent(MainActivity.this, RecycleLoadmoreActivity.class));
                 break;
+            case R.id.btn_am_zh_recycle:
+                startActivity(new Intent(MainActivity.this, ZhiHuActivity.class));
+                break;
+            case R.id.btn_am_zh_analysis_canvas:
+                startActivity(new Intent(MainActivity.this, AnalysisCanvasActivity.class));
+                break;
+            case R.id.btn_am_view_animation_utils:
+                startActivity(new Intent(MainActivity.this, ViewAnimationUtilsActivity.class));
+                break;
+
 
         }
     }

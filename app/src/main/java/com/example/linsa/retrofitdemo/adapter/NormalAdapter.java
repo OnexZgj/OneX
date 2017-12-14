@@ -14,12 +14,12 @@ import java.util.ArrayList;
  * des:
  */
 
-public class NormalAdapter extends RecyclerView.Adapter<MyHolder> {
+public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<String> mData;
 
     public NormalAdapter(ArrayList<String> mData) {
-        this.mData=mData;
+        this.mData = mData;
     }
 
 
@@ -27,14 +27,18 @@ public class NormalAdapter extends RecyclerView.Adapter<MyHolder> {
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_test, parent, false);
 
-        MyHolder holder=new MyHolder(inflate);
+        MyHolder holder = new MyHolder(inflate);
 
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, int position) {
-        holder.mtvText.setText(mData.get(position));
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof MyHolder) {
+            MyHolder hold = (MyHolder) holder;
+            ((MyHolder) holder).mtvTextView.setText(mData.get(position));
+        }
+
     }
 
     @Override
