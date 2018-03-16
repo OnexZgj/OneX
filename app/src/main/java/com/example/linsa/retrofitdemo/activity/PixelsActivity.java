@@ -8,7 +8,7 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.linsa.retrofitdemo.RetrofitApp;
+import com.example.linsa.retrofitdemo.MyApp;
 import com.example.linsa.retrofitdemo.broadcast.BootCompleteReceiver;
 
 /**
@@ -46,9 +46,9 @@ public class PixelsActivity extends AppCompatActivity implements IPixelsActivity
 
 
     public static void startPixels() {
-        Intent intent = new Intent(RetrofitApp.getInstance(), PixelsActivity.class);
+        Intent intent = new Intent(MyApp.getInstance(), PixelsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        RetrofitApp.getInstance().startActivity(intent);
+        MyApp.getInstance().startActivity(intent);
     }
 
 
