@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,7 +43,7 @@ public class RecycleHolderActivity extends AppCompatActivity {
 
     private void initData() {
         mData = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 20; i++) {
             mData.add("I   am   the  : " + i);
         }
 
@@ -53,10 +55,31 @@ public class RecycleHolderActivity extends AppCompatActivity {
 
 
         TextView tv = new TextView(this);
-        tv.setText(" HEAD  1");
+
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) tv.getLayoutParams();
+        params.leftMargin=10;
+
+
+
+        tv.setBackgroundColor(Color.BLUE);
+
+        //---实现效果一样
+        tv.requestLayout();
+        tv.setLayoutParams(params);
+
+        tv.setHeight(200);
+        tv.setWidth(getResources().getDisplayMetrics().widthPixels);
+        tv.setGravity(Gravity.CENTER);
+        tv.setTextColor(Color.WHITE);
+        tv.setText(" I  AM HEAD  1");
 
         TextView tv2 = new TextView(this);
-        tv2.setText(" HEAD  2");
+        tv2.setBackgroundColor(Color.GREEN);
+        tv2.setHeight(500);
+        tv2.setWidth(getResources().getDisplayMetrics().widthPixels);
+        tv2.setGravity(Gravity.CENTER);
+        tv2.setTextColor(Color.WHITE);
+        tv2.setText(" I AM HEAD  2");
 
         LoadingView loadingView = new LoadingView(this);
 
@@ -68,6 +91,7 @@ public class RecycleHolderActivity extends AppCompatActivity {
         loadingView.addBitmap(R.mipmap.v9);
         loadingView.setShadowColor(Color.LTGRAY);
         loadingView.setDuration(1000);
+
         loadingView.start();
 
 
@@ -76,6 +100,11 @@ public class RecycleHolderActivity extends AppCompatActivity {
         wrapperAdapter.addHeaderView(tv2);
 
         TextView tv3 = new TextView(this);
+        tv3.setBackgroundColor(Color.GREEN);
+        tv3.setHeight(500);
+        tv3.setWidth(getResources().getDisplayMetrics().widthPixels);
+        tv3.setGravity(Gravity.CENTER);
+        tv3.setTextColor(Color.WHITE);
         tv3.setText(" FOOTER  1");
 
         wrapperAdapter.addFootView(tv3);
@@ -93,17 +122,6 @@ public class RecycleHolderActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SHSwipeRefreshLayout.SHSOnRefreshListener() {
             @Override
             public void onRefresh() {
-
-//                loadingView.addBitmap(R.mipmap.v4);
-//                loadingView.addBitmap(R.mipmap.v5);
-//                loadingView.addBitmap(R.mipmap.v6);
-//                loadingView.addBitmap(R.mipmap.v7);
-//                loadingView.addBitmap(R.mipmap.v8);
-//                loadingView.addBitmap(R.mipmap.v9);
-//                loadingView.setShadowColor(Color.LTGRAY);
-//                loadingView.setDuration(300);
-//                loadingView.start();
-
 
                 swipeRefreshLayout.postDelayed(new Runnable() {
                     @Override
