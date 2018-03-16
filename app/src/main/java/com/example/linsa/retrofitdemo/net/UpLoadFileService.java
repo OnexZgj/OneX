@@ -35,4 +35,29 @@ public interface UpLoadFileService {
     @POST("UploadHtmlServlet")
     Call<ResponseBody> upLoadMultFile(@PartMap Map<String, RequestBody> filesMap);
 
+
+    //Retrofit单文件
+    @Multipart
+    @POST("UploadServlet")
+    Call<ResponseBody> upLoadFile( @Part("description") RequestBody description,@Part MultipartBody.Part file);
+
+
+    @Multipart
+    @POST("UploadServlet")
+    Call<ResponseBody> uploadMultipleFiles(
+            @Part("description") RequestBody description,
+            @Part MultipartBody.Part file1,
+            @Part MultipartBody.Part file2);
+
+
+
+    @Multipart
+    @POST("UploadServlet")
+    Call<ResponseBody> uploadMapFile(@PartMap Map<String, RequestBody> params);
+
+
+
+
+
+
 }

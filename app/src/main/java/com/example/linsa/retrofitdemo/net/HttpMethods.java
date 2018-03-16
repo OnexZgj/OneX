@@ -1,6 +1,6 @@
 package com.example.linsa.retrofitdemo.net;
 
-import com.example.linsa.retrofitdemo.RetrofitApp;
+import com.example.linsa.retrofitdemo.MyApp;
 import com.example.linsa.retrofitdemo.bean.DesContent;
 import com.example.linsa.retrofitdemo.bean.Movie;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
@@ -27,7 +27,7 @@ public class HttpMethods {
 
 
 
-    public static final String BASE_URL2 = "http://172.16.129.77:8080/WEB22/";
+    public static final String BASE_URL2 = "http://172.16.128.182:8080/UploadFile/servlet/";
     private static final int DEFAULT_TIMEOUT = 10;
     private final MovieService movieService=null;
     private final DesService desService;
@@ -40,7 +40,7 @@ public class HttpMethods {
 
         OkHttpClient.Builder okBuilder = new OkHttpClient.Builder();
 
-        Cache cache = new Cache(new File(RetrofitApp.getInstance().getCacheDir(), "HttpCache"), 1024 * 1024 * 10);
+        Cache cache = new Cache(new File(MyApp.getInstance().getCacheDir(), "HttpCache"), 1024 * 1024 * 10);
 
         //设置超时时间，并且设置时间的单位
         okBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)

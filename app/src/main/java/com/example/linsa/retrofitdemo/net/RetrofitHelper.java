@@ -1,6 +1,6 @@
 package com.example.linsa.retrofitdemo.net;
 
-import com.example.linsa.retrofitdemo.RetrofitApp;
+import com.example.linsa.retrofitdemo.MyApp;
 import com.example.linsa.retrofitdemo.util.CommonUtil;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
@@ -89,7 +89,7 @@ public class RetrofitHelper {
             synchronized (RetrofitHelper.class){
                 //设置了缓存的位置 大小为10M
                 if (mOkHttpClient==null){
-                    Cache cache = new Cache(new File(RetrofitApp.getInstance().getCacheDir(), "HttpCache"), 1024 * 1024 * 10);
+                    Cache cache = new Cache(new File(MyApp.getInstance().getCacheDir(), "HttpCache"), 1024 * 1024 * 10);
                     mOkHttpClient=new OkHttpClient.Builder()
                             .addNetworkInterceptor(new StethoInterceptor())
 //                            .addNetworkInterceptor(new CacheInterceptor())
@@ -115,7 +115,7 @@ public class RetrofitHelper {
             // 无网络时，设置超时为1天
             int maxStale = 60 * 60 * 24;
             Request request = chain.request();
-            if (CommonUtil.isNetworkAvailable(RetrofitApp.getInstance())) {
+            if (CommonUtil.isNetworkAvailable(MyApp.getInstance())) {
                 //有网络时只从网络获取
                 request = request.newBuilder().cacheControl(CacheControl.FORCE_NETWORK).build();
             } else {
@@ -123,7 +123,7 @@ public class RetrofitHelper {
                 request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build();
             }
             Response response = chain.proceed(request);
-            if (CommonUtil.isNetworkAvailable(RetrofitApp.getInstance())) {
+            if (CommonUtil.isNetworkAvailable(MyApp.getInstance())) {
                 response = response.newBuilder()
                         .removeHeader("Pragma")
                         .header("Cache-Control", "public, max-age=" + maxAge)
